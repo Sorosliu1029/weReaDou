@@ -23,5 +23,11 @@ jobs:
           ${{ runner.OS }}-node-
           ${{ runner.OS }}-
     - run: npm ci
-    - run: npm run build --if-present
     - run: npm test
+    - run: npm run build --if-present
+    - run: zip -r weReaDou.zip dist
+    - name: Archive dist zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: weReaDou-zip
+        path: weReaDou.zip
