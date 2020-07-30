@@ -55,7 +55,7 @@ function getHTML(books: Book[]): string {
             <div><a target="_blank" href="${wereadLink}">去看看 ></a></div>
           </div>
         </div>
-     </li>`
+      </li>`
     )
   }, '')
 
@@ -69,7 +69,7 @@ function getHTML(books: Book[]): string {
   return `
     <div class="gray_ad">
         <div>
-            <h2><span>✳️ 在微信读书中可读</span>&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+            <h2><span>✳️ 在微信读书中可读 </span>&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
             ${list}
         </div>
     </div>
@@ -91,10 +91,6 @@ function filter(data: WeReadResult, doubanAuthor: string): Book[] {
       titleScore: calculateScore(book.bookInfo.title, parts),
       authorSimilarity: calculateSimilarity(doubanAuthor, book.bookInfo.author),
     }))
-    .map((book) => {
-      console.log(book)
-      return book
-    })
     .filter(
       (book) =>
         book.titleScore >= TITLE_MIN_SCORE &&
