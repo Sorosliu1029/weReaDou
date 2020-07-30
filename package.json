@@ -8,7 +8,8 @@
     "build": "webpack --config webpack/webpack.prod.js",
     "clean": "rm -rf dist",
     "test": "npx jest",
-    "purge": "rm -rf node_modules package-lock.json"
+    "purge": "rm -rf node_modules package-lock.json",
+    "zip": "cd dist && zip -r ../weReaDou.zip * && cd -"
   },
   "author": "SorosLiu1029",
   "license": "MIT",

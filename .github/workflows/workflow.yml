@@ -24,7 +24,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build --if-present
-      - run: zip -r weReaDou.zip dist
+      - run: npm run zip
       - name: Archive dist zip
         uses: actions/upload-artifact@v2
         with:
