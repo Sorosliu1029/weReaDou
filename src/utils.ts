@@ -45,3 +45,25 @@ export function calculateBookStrId(bookId: string): string {
 
   return result
 }
+
+export function calculateScore(str: string, grams: string[]): number {
+  const isContained = grams.map((g) => str.includes(g))
+  return isContained.reduce((acc, curr) => acc + Number(curr), 0) / grams.length
+}
+
+/**
+ * Jacard similarity
+ * @param a string
+ * @param b string
+ */
+export function calculateSimilarity(a: string, b: string): number {
+  const bSet = new Set([...b])
+  return (
+    new Set([...a].filter((e) => bSet.has(e))).size /
+    new Set([...a, ...b]).size
+  )
+}
+
+export function cleanTitle(title: string): string {
+  return title.replace(/（.+）/, '')
+}
