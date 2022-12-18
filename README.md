@@ -1,11 +1,8 @@
 # weReaDou
-✳️ 在豆瓣中显示微信读书的可读状态
+✳️ 在豆瓣中显示微信读书的可读状态 ![GitHub Actions](https://github.com/Sorosliu1029/weReaDou/workflows/CI/badge.svg)
 
 [![chrome web store badge](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl)
 
-![GitHub Actions](https://github.com/Sorosliu1029/weReaDou/workflows/CI/badge.svg)
-
-特点：
 - 直达微信读书网页版
 - 更融入的界面
 - 搜索结果匹配过滤
