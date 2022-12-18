@@ -1,6 +1,6 @@
 {
   "name": "weReaDou",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "在豆瓣中显示微信读书的可读状态",
   "main": "index.js",
   "scripts": {
