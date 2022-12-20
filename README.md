@@ -3,6 +3,8 @@
 
 [![chrome web store badge](https://storage.googleapis.com/web-dev-uploads/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/UV4C4ybeBTsZt43U4xis.png)](https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl)
 
+[![firefox add-on store badge](https://blog.mozilla.org/addons/files/2015/11/get-the-addon.png)](https://addons.mozilla.org/en-US/firefox/addon/wereadouban/)
+
 - 直达微信读书网页版
 - 更融入的界面
 - 搜索结果匹配过滤
