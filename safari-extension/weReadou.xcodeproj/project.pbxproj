@@ -1,0 +1,953 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1BE2D69294F2D9E0061ED14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D68294F2D9E0061ED14 /* AppDelegate.swift */; };
+		B1BE2D6B294F2D9E0061ED14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D6A294F2D9E0061ED14 /* SceneDelegate.swift */; };
+		B1BE2D6E294F2D9E0061ED14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D6C294F2D9E0061ED14 /* LaunchScreen.storyboard */; };
+		B1BE2D71294F2D9E0061ED14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D6F294F2D9E0061ED14 /* Main.storyboard */; };
+		B1BE2D7A294F2D9E0061ED14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D79294F2D9E0061ED14 /* AppDelegate.swift */; };
+		B1BE2D7D294F2D9E0061ED14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D7B294F2D9E0061ED14 /* Main.storyboard */; };
+		B1BE2D85294F2D9E0061ED14 /* weReadou Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B1BE2D84294F2D9E0061ED14 /* weReadou Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B1BE2D8F294F2D9E0061ED14 /* weReadou Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = B1BE2D8E294F2D9E0061ED14 /* weReadou Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B1BE2D95294F2D9E0061ED14 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D58294F2D9D0061ED14 /* Main.html */; };
+		B1BE2D96294F2D9E0061ED14 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D58294F2D9D0061ED14 /* Main.html */; };
+		B1BE2D97294F2D9E0061ED14 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5A294F2D9D0061ED14 /* Icon.png */; };
+		B1BE2D98294F2D9E0061ED14 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5A294F2D9D0061ED14 /* Icon.png */; };
+		B1BE2D99294F2D9E0061ED14 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5B294F2D9D0061ED14 /* Style.css */; };
+		B1BE2D9A294F2D9E0061ED14 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5B294F2D9D0061ED14 /* Style.css */; };
+		B1BE2D9B294F2D9E0061ED14 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5C294F2D9D0061ED14 /* Script.js */; };
+		B1BE2D9C294F2D9E0061ED14 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5C294F2D9D0061ED14 /* Script.js */; };
+		B1BE2D9D294F2D9E0061ED14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D5D294F2D9D0061ED14 /* ViewController.swift */; };
+		B1BE2D9E294F2D9E0061ED14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D5D294F2D9D0061ED14 /* ViewController.swift */; };
+		B1BE2D9F294F2D9E0061ED14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5E294F2D9E0061ED14 /* Assets.xcassets */; };
+		B1BE2DA0294F2D9E0061ED14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2D5E294F2D9E0061ED14 /* Assets.xcassets */; };
+		B1BE2DA1294F2D9E0061ED14 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D60294F2D9E0061ED14 /* SafariWebExtensionHandler.swift */; };
+		B1BE2DA2294F2D9E0061ED14 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BE2D60294F2D9E0061ED14 /* SafariWebExtensionHandler.swift */; };
+		B1BE2DB8294F2D9E0061ED14 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB4294F2D9E0061ED14 /* images */; };
+		B1BE2DB9294F2D9E0061ED14 /* js in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB5294F2D9E0061ED14 /* js */; };
+		B1BE2DBA294F2D9E0061ED14 /* _metadata in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB6294F2D9E0061ED14 /* _metadata */; };
+		B1BE2DBB294F2D9E0061ED14 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB7294F2D9E0061ED14 /* manifest.json */; };
+		B1BE2DBC294F2D9E0061ED14 /* images in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB4294F2D9E0061ED14 /* images */; };
+		B1BE2DBD294F2D9E0061ED14 /* js in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB5294F2D9E0061ED14 /* js */; };
+		B1BE2DBE294F2D9E0061ED14 /* _metadata in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB6294F2D9E0061ED14 /* _metadata */; };
+		B1BE2DBF294F2D9E0061ED14 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B1BE2DB7294F2D9E0061ED14 /* manifest.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1BE2D86294F2D9E0061ED14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1BE2D52294F2D9D0061ED14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1BE2D83294F2D9E0061ED14;
+			remoteInfo = "weReadouSafari Extension (iOS)";
+		};
+		B1BE2D90294F2D9E0061ED14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1BE2D52294F2D9D0061ED14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1BE2D8D294F2D9E0061ED14;
+			remoteInfo = "weReadouSafari Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1BE2DA8294F2D9E0061ED14 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B1BE2D85294F2D9E0061ED14 /* weReadou Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2DAF294F2D9E0061ED14 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B1BE2D8F294F2D9E0061ED14 /* weReadou Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B1BE2D59294F2D9D0061ED14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		B1BE2D5A294F2D9D0061ED14 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		B1BE2D5B294F2D9D0061ED14 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		B1BE2D5C294F2D9D0061ED14 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		B1BE2D5D294F2D9D0061ED14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1BE2D5E294F2D9E0061ED14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1BE2D60294F2D9E0061ED14 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		B1BE2D65294F2D9E0061ED14 /* weReadou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weReadou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1BE2D68294F2D9E0061ED14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1BE2D6A294F2D9E0061ED14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B1BE2D6D294F2D9E0061ED14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B1BE2D70294F2D9E0061ED14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B1BE2D72294F2D9E0061ED14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1BE2D77294F2D9E0061ED14 /* weReadou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weReadou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1BE2D79294F2D9E0061ED14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1BE2D7C294F2D9E0061ED14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B1BE2D7E294F2D9E0061ED14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1BE2D7F294F2D9E0061ED14 /* weReadouSafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weReadouSafari.entitlements; sourceTree = "<group>"; };
+		B1BE2D84294F2D9E0061ED14 /* weReadou Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "weReadou Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1BE2D89294F2D9E0061ED14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1BE2D8E294F2D9E0061ED14 /* weReadou Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "weReadou Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1BE2D93294F2D9E0061ED14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1BE2D94294F2D9E0061ED14 /* weReadouSafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = weReadouSafari.entitlements; sourceTree = "<group>"; };
+		B1BE2DB4294F2D9E0061ED14 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = Resources/images; sourceTree = "<group>"; };
+		B1BE2DB5294F2D9E0061ED14 /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; name = js; path = Resources/js; sourceTree = "<group>"; };
+		B1BE2DB6294F2D9E0061ED14 /* _metadata */ = {isa = PBXFileReference; lastKnownFileType = folder; name = _metadata; path = Resources/_metadata; sourceTree = "<group>"; };
+		B1BE2DB7294F2D9E0061ED14 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = Resources/manifest.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1BE2D62294F2D9E0061ED14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D74294F2D9E0061ED14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D81294F2D9E0061ED14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D8B294F2D9E0061ED14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1BE2D51294F2D9D0061ED14 = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D56294F2D9D0061ED14 /* Shared (App) */,
+				B1BE2D5F294F2D9E0061ED14 /* Shared (Extension) */,
+				B1BE2D67294F2D9E0061ED14 /* iOS (App) */,
+				B1BE2D78294F2D9E0061ED14 /* macOS (App) */,
+				B1BE2D88294F2D9E0061ED14 /* iOS (Extension) */,
+				B1BE2D92294F2D9E0061ED14 /* macOS (Extension) */,
+				B1BE2D66294F2D9E0061ED14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1BE2D56294F2D9D0061ED14 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D5D294F2D9D0061ED14 /* ViewController.swift */,
+				B1BE2D5E294F2D9E0061ED14 /* Assets.xcassets */,
+				B1BE2D57294F2D9D0061ED14 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		B1BE2D57294F2D9D0061ED14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D58294F2D9D0061ED14 /* Main.html */,
+				B1BE2D5A294F2D9D0061ED14 /* Icon.png */,
+				B1BE2D5B294F2D9D0061ED14 /* Style.css */,
+				B1BE2D5C294F2D9D0061ED14 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B1BE2D5F294F2D9E0061ED14 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2DB3294F2D9E0061ED14 /* Resources */,
+				B1BE2D60294F2D9E0061ED14 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		B1BE2D66294F2D9E0061ED14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D65294F2D9E0061ED14 /* weReadou.app */,
+				B1BE2D77294F2D9E0061ED14 /* weReadou.app */,
+				B1BE2D84294F2D9E0061ED14 /* weReadou Extension.appex */,
+				B1BE2D8E294F2D9E0061ED14 /* weReadou Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1BE2D67294F2D9E0061ED14 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D68294F2D9E0061ED14 /* AppDelegate.swift */,
+				B1BE2D6A294F2D9E0061ED14 /* SceneDelegate.swift */,
+				B1BE2D6C294F2D9E0061ED14 /* LaunchScreen.storyboard */,
+				B1BE2D6F294F2D9E0061ED14 /* Main.storyboard */,
+				B1BE2D72294F2D9E0061ED14 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		B1BE2D78294F2D9E0061ED14 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D79294F2D9E0061ED14 /* AppDelegate.swift */,
+				B1BE2D7B294F2D9E0061ED14 /* Main.storyboard */,
+				B1BE2D7E294F2D9E0061ED14 /* Info.plist */,
+				B1BE2D7F294F2D9E0061ED14 /* weReadouSafari.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		B1BE2D88294F2D9E0061ED14 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D89294F2D9E0061ED14 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		B1BE2D92294F2D9E0061ED14 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2D93294F2D9E0061ED14 /* Info.plist */,
+				B1BE2D94294F2D9E0061ED14 /* weReadouSafari.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		B1BE2DB3294F2D9E0061ED14 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1BE2DB4294F2D9E0061ED14 /* images */,
+				B1BE2DB5294F2D9E0061ED14 /* js */,
+				B1BE2DB6294F2D9E0061ED14 /* _metadata */,
+				B1BE2DB7294F2D9E0061ED14 /* manifest.json */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1BE2D64294F2D9E0061ED14 /* weReadou (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1BE2DA9294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou (iOS)" */;
+			buildPhases = (
+				B1BE2D61294F2D9E0061ED14 /* Sources */,
+				B1BE2D62294F2D9E0061ED14 /* Frameworks */,
+				B1BE2D63294F2D9E0061ED14 /* Resources */,
+				B1BE2DA8294F2D9E0061ED14 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1BE2D87294F2D9E0061ED14 /* PBXTargetDependency */,
+			);
+			name = "weReadou (iOS)";
+			productName = "weReadouSafari (iOS)";
+			productReference = B1BE2D65294F2D9E0061ED14 /* weReadou.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1BE2D76294F2D9E0061ED14 /* weReadou (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1BE2DB0294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou (macOS)" */;
+			buildPhases = (
+				B1BE2D73294F2D9E0061ED14 /* Sources */,
+				B1BE2D74294F2D9E0061ED14 /* Frameworks */,
+				B1BE2D75294F2D9E0061ED14 /* Resources */,
+				B1BE2DAF294F2D9E0061ED14 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1BE2D91294F2D9E0061ED14 /* PBXTargetDependency */,
+			);
+			name = "weReadou (macOS)";
+			productName = "weReadouSafari (macOS)";
+			productReference = B1BE2D77294F2D9E0061ED14 /* weReadou.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1BE2D83294F2D9E0061ED14 /* weReadou Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1BE2DA5294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou Extension (iOS)" */;
+			buildPhases = (
+				B1BE2D80294F2D9E0061ED14 /* Sources */,
+				B1BE2D81294F2D9E0061ED14 /* Frameworks */,
+				B1BE2D82294F2D9E0061ED14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "weReadou Extension (iOS)";
+			productName = "weReadouSafari Extension (iOS)";
+			productReference = B1BE2D84294F2D9E0061ED14 /* weReadou Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		B1BE2D8D294F2D9E0061ED14 /* weReadou Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1BE2DAC294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou Extension (macOS)" */;
+			buildPhases = (
+				B1BE2D8A294F2D9E0061ED14 /* Sources */,
+				B1BE2D8B294F2D9E0061ED14 /* Frameworks */,
+				B1BE2D8C294F2D9E0061ED14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "weReadou Extension (macOS)";
+			productName = "weReadouSafari Extension (macOS)";
+			productReference = B1BE2D8E294F2D9E0061ED14 /* weReadou Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1BE2D52294F2D9D0061ED14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					B1BE2D64294F2D9E0061ED14 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					B1BE2D76294F2D9E0061ED14 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					B1BE2D83294F2D9E0061ED14 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					B1BE2D8D294F2D9E0061ED14 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = B1BE2D55294F2D9D0061ED14 /* Build configuration list for PBXProject "weReadou" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1BE2D51294F2D9D0061ED14;
+			productRefGroup = B1BE2D66294F2D9E0061ED14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1BE2D64294F2D9E0061ED14 /* weReadou (iOS) */,
+				B1BE2D76294F2D9E0061ED14 /* weReadou (macOS) */,
+				B1BE2D83294F2D9E0061ED14 /* weReadou Extension (iOS) */,
+				B1BE2D8D294F2D9E0061ED14 /* weReadou Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1BE2D63294F2D9E0061ED14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2D97294F2D9E0061ED14 /* Icon.png in Resources */,
+				B1BE2D6E294F2D9E0061ED14 /* LaunchScreen.storyboard in Resources */,
+				B1BE2D95294F2D9E0061ED14 /* Main.html in Resources */,
+				B1BE2D9B294F2D9E0061ED14 /* Script.js in Resources */,
+				B1BE2D9F294F2D9E0061ED14 /* Assets.xcassets in Resources */,
+				B1BE2D71294F2D9E0061ED14 /* Main.storyboard in Resources */,
+				B1BE2D99294F2D9E0061ED14 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D75294F2D9E0061ED14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2D98294F2D9E0061ED14 /* Icon.png in Resources */,
+				B1BE2D9A294F2D9E0061ED14 /* Style.css in Resources */,
+				B1BE2D7D294F2D9E0061ED14 /* Main.storyboard in Resources */,
+				B1BE2D9C294F2D9E0061ED14 /* Script.js in Resources */,
+				B1BE2DA0294F2D9E0061ED14 /* Assets.xcassets in Resources */,
+				B1BE2D96294F2D9E0061ED14 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D82294F2D9E0061ED14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2DBF294F2D9E0061ED14 /* manifest.json in Resources */,
+				B1BE2DBE294F2D9E0061ED14 /* _metadata in Resources */,
+				B1BE2DBC294F2D9E0061ED14 /* images in Resources */,
+				B1BE2DBD294F2D9E0061ED14 /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D8C294F2D9E0061ED14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2DBB294F2D9E0061ED14 /* manifest.json in Resources */,
+				B1BE2DBA294F2D9E0061ED14 /* _metadata in Resources */,
+				B1BE2DB8294F2D9E0061ED14 /* images in Resources */,
+				B1BE2DB9294F2D9E0061ED14 /* js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1BE2D61294F2D9E0061ED14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2D9D294F2D9E0061ED14 /* ViewController.swift in Sources */,
+				B1BE2D69294F2D9E0061ED14 /* AppDelegate.swift in Sources */,
+				B1BE2D6B294F2D9E0061ED14 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D73294F2D9E0061ED14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2D9E294F2D9E0061ED14 /* ViewController.swift in Sources */,
+				B1BE2D7A294F2D9E0061ED14 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D80294F2D9E0061ED14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2DA1294F2D9E0061ED14 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1BE2D8A294F2D9E0061ED14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1BE2DA2294F2D9E0061ED14 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1BE2D87294F2D9E0061ED14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1BE2D83294F2D9E0061ED14 /* weReadou Extension (iOS) */;
+			targetProxy = B1BE2D86294F2D9E0061ED14 /* PBXContainerItemProxy */;
+		};
+		B1BE2D91294F2D9E0061ED14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1BE2D8D294F2D9E0061ED14 /* weReadou Extension (macOS) */;
+			targetProxy = B1BE2D90294F2D9E0061ED14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B1BE2D58294F2D9D0061ED14 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1BE2D59294F2D9D0061ED14 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		B1BE2D6C294F2D9E0061ED14 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1BE2D6D294F2D9E0061ED14 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B1BE2D6F294F2D9E0061ED14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1BE2D70294F2D9E0061ED14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B1BE2D7B294F2D9E0061ED14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1BE2D7C294F2D9E0061ED14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1BE2DA3294F2D9E0061ED14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B1BE2DA4294F2D9E0061ED14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		B1BE2DA6294F2D9E0061ED14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = "weReadou Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1BE2DA7294F2D9E0061ED14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = "weReadou Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1BE2DAA294F2D9E0061ED14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = weReadou;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1BE2DAB294F2D9E0061ED14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = weReadou;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1BE2DAD294F2D9E0061ED14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/weReadouSafari.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "weReadouSafari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = "weReadou Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1BE2DAE294F2D9E0061ED14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/weReadouSafari.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "weReadouSafari Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = "weReadou Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B1BE2DB1294F2D9E0061ED14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/weReadouSafari.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = weReadou;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1BE2DB2294F2D9E0061ED14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/weReadouSafari.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BGKPQN72TW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = weReadou;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.1;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.sorosliu;
+				PRODUCT_NAME = weReadou;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1BE2D55294F2D9D0061ED14 /* Build configuration list for PBXProject "weReadou" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BE2DA3294F2D9E0061ED14 /* Debug */,
+				B1BE2DA4294F2D9E0061ED14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1BE2DA5294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BE2DA6294F2D9E0061ED14 /* Debug */,
+				B1BE2DA7294F2D9E0061ED14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1BE2DA9294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BE2DAA294F2D9E0061ED14 /* Debug */,
+				B1BE2DAB294F2D9E0061ED14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1BE2DAC294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BE2DAD294F2D9E0061ED14 /* Debug */,
+				B1BE2DAE294F2D9E0061ED14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1BE2DB0294F2D9E0061ED14 /* Build configuration list for PBXNativeTarget "weReadou (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1BE2DB1294F2D9E0061ED14 /* Debug */,
+				B1BE2DB2294F2D9E0061ED14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1BE2D52294F2D9D0061ED14 /* Project object */;
+}

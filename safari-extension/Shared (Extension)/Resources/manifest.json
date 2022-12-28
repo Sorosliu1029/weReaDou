@@ -1,0 +1,27 @@
+{
+   "author": "sorosliu",
+   "background": {
+      "persistent": false,
+      "scripts": [ "js/vendor.js", "js/background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "js/vendor.js", "js/content_script.js" ],
+      "matches": [ "https://book.douban.com/subject/*" ]
+   } ],
+   "description": "✳️ 在豆瓣中显示微信读书的可读状态",
+   "homepage_url": "https://github.com/Sorosliu1029/weReaDou",
+   "icons": {
+      "128": "images/icon@128.png",
+      "16": "images/icon@16.png",
+      "32": "images/icon@32.png",
+      "48": "images/icon@48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAh+/l+7NbsQV5gXsJZD7LSKST435ucLETEwpm6nXmMaiv4oRGJ3i+1Kt5kpTyQ4UG+jRBSqGB0WIFDLvaE2zz1ON7xAa0uVxETGUskqnOtEII7UNy0Qzx3AMINmLRzE+siDNuB1axlwBRkHF1mWL+zIZwDlln11A8qiRPYaCqBtrf5Rb4bmlMtkbBBfhdOpA4rmMwIiO8SIStXU8FQOOX3dpQ+rscZP38DYMTIt8Fl6tp8/G3Z9yFd1LIrwSbksy8KCi39FH3HXf6zAmksgAyF3r7U0m7mqVEJ1Pef9IdDoLj6qDH0YU8d6YRQzx7s7RSgysN/+Xewi88LcLfxSZ3fQIDAQAB",
+   "manifest_version": 3,
+   "name": "weReaDou",
+   "offline_enabled": false,
+   "permissions": [ "https://weread.qq.com/" ],
+   "host_permissions": ["*://weread.qq.com/*"],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.1"
+}

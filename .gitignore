@@ -3,3 +3,10 @@ node_modules/
 dist/
 tmp/
 *.zip
+
+# Xcode
+## User settings
+xcuserdata/
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
