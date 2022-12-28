@@ -1,12 +1,12 @@
 const webpack = require("webpack");
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const srcDir = '../src/';
+const srcDir = path.join(__dirname, '..', 'src');
 
 module.exports = {
     entry: {
-        background: path.join(__dirname, srcDir + 'background.ts'),
-        content_script: path.join(__dirname, srcDir + 'content_script.ts')
+        background: path.join(srcDir, 'background.ts'),
+        content_script: path.join(srcDir, 'content_script.ts')
     },
     output: {
         path: path.join(__dirname, '../dist/js'),
@@ -15,7 +15,9 @@ module.exports = {
     optimization: {
         splitChunks: {
             name: 'vendor',
-            chunks: "initial"
+            chunks(chunk) {
+                return chunk.name !== 'background';
+            }
         }
     },
     module: {

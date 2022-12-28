@@ -1,8 +1,8 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "weReaDou",
   "description": "✳️ 在豆瓣中显示微信读书的可读状态",
-  "version": "1.1",
+  "version": "1.2",
   "icons": {
     "16": "images/icon@16.png",
     "32": "images/icon@32.png",
@@ -24,12 +24,8 @@
     }
   ],
   "background": {
-    "scripts": [
-      "js/vendor.js",
-      "js/background.js"
-    ],
-    "persistent": false
+    "service_worker": "js/background.js"
   },
-  "permissions": ["https://weread.qq.com/"],
+  "host_permissions": ["https://weread.qq.com/"],
   "offline_enabled": false
 }
