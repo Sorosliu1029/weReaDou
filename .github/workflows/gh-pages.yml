@@ -30,18 +30,18 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-        with:
-          working-directory: ./gh-pages
+        working-directory: ./gh-pages
       - run: npx tailwindcss -i ./input.css -o ./output.css
-        with:
-          working-directory: ./gh-pages
+        working-directory: ./gh-pages
+      - run: mkdir out && mv *.png index.html output.css out
+        working-directory: ./gh-pages
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          name: pages
-          path: ./gh-pages
+          name: github-pages
+          path: ./gh-pages/out
 
   # Deployment job
   deploy:
