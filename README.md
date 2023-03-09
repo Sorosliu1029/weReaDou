@@ -1,5 +1,5 @@
 # weReaDou
-## ✳️ 在豆瓣中显示微信读书的可读状态 ![GitHub Actions](https://github.com/Sorosliu1029/weReaDou/workflows/CI/badge.svg)
+## ✳️ 在豆瓣中显示微信读书的可读状态 ![GitHub Actions](https://github.com/Sorosliu1029/weReaDou/workflows/CI/badge.svg) ![visitors](https://visitor-badge.glitch.me/badge?page_id=Sorosliu1029.weReaDou)
 
 点击对应商店图标即可跳转至对应商店安装
 
