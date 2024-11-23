@@ -23,6 +23,7 @@ type BookInfo = {
   intro: string
   title: string
   price: number
+  soldout: number
 }
 
 type Book = {
@@ -38,6 +39,7 @@ function getHTML(books: Book[]): string {
   let list = books.reduce((acc, book) => {
     const wereadLink =
       WEREAD_DETAIL_PAGE_BASE_URL + calculateBookStrId(book.bookInfo.bookId)
+    const bookTitle = book.bookInfo.soldout === 0 ? book.bookInfo.title : `（已下架）${book.bookInfo.title}`
     return (
       acc +
       `<li style="width: 275px; display: inline-block; zoom: 1; overflow: hidden; margin: 0 0 12px 0; vertical-align: top;">
@@ -49,7 +51,7 @@ function getHTML(books: Book[]): string {
           </div>
           <div style="max-width: 170px; display: inline-block; zoom: 1; overflow: hidden;">
             <div>
-              <a target="_blank" href="${wereadLink}">${book.bookInfo.title}</a>
+              <a target="_blank" href="${wereadLink}">${bookTitle}</a>
             </div>
             <div>${book.bookInfo.author}</div>
             <div><a target="_blank" href="${wereadLink}">去看看 ></a></div>
