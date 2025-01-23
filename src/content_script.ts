@@ -10,6 +10,7 @@ const WEREAD_DETAIL_PAGE_BASE_URL = 'https://weread.qq.com/web/reader/'
 const TITLE_MIN_SCORE = 0.5
 const AUTHOR_MIN_SIMILARITY_SCORE = 0.3
 const SELECT_FROM_COUNT = 5
+const SOLD_OUT_BADGE_HTML = '<span style="font-weight: bold; border-radius: 5px; border: solid 1px; padding: 0 2px; margin-right: 3px;">已下架</span>'
 
 type WeReadResult = {
   books: Book[]
@@ -39,7 +40,7 @@ function getHTML(books: Book[]): string {
   let list = books.reduce((acc, book) => {
     const wereadLink =
       WEREAD_DETAIL_PAGE_BASE_URL + calculateBookStrId(book.bookInfo.bookId)
-    const bookTitle = book.bookInfo.soldout === 0 ? book.bookInfo.title : `（已下架）${book.bookInfo.title}`
+    const bookTitle = (book.bookInfo.soldout === 0 ? '' : SOLD_OUT_BADGE_HTML) + book.bookInfo.title
     return (
       acc +
       `<li style="width: 275px; display: inline-block; zoom: 1; overflow: hidden; margin: 0 0 12px 0; vertical-align: top;">
