@@ -10,7 +10,7 @@
     "128": "images/icon@128.png"
   },
   "author": "sorosliu",
-  "homepage_url": "https://github.com/Sorosliu1029/weReaDou",
+  "homepage_url": "https://wereadou.sorosliu.xyz/",
 
   "content_scripts": [
     {
