@@ -5,6 +5,13 @@ on:
   push:
     branches: ["master"]
 
+  # Validate site builds before merging; PRs do not deploy.
+  pull_request:
+    branches: ["master"]
+    paths:
+      - "gh-pages/**"
+      - ".github/workflows/gh-pages.yml"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -16,7 +23,7 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: "pages"
+  group: "pages-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'production' }}"
   cancel-in-progress: true
 
 jobs:
@@ -25,10 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 16
+          node-version: 24
       - run: npm ci
         working-directory: ./gh-pages
       - run: npx tailwindcss -i ./input.css -o ./output.css
@@ -36,15 +43,17 @@ jobs:
       - run: mkdir out && mv *.png index.html output.css out
         working-directory: ./gh-pages
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages
           path: ./gh-pages/out
 
   # Deployment job
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -53,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v5
