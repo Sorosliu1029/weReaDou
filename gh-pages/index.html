@@ -1,166 +1,775 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weReaDou — 从发现好书，到开始阅读</title>
+    <meta
+      name="description"
+      content="在豆瓣发现好书，在微信读书开始阅读。weReaDou 浏览器扩展，在豆瓣书籍页面显示微信读书的收录状态，一键直达阅读。"
+    />
     <link rel="canonical" href="https://wereadou.sorosliu.xyz/" />
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weReaDou - 连接豆瓣和微信读书</title>
-
-    <!-- Meta SEO -->
-    <meta name="title" content="weReaDou - 连接豆瓣和微信读书">
-    <meta name="description" content="✳️ 在豆瓣中显示微信读书的可读状态">
-    <meta name="robots" content="index, follow">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="language" content="Chinese">
-    <meta name="author" content="Soros Liu">
-
-    <!-- Social media share -->
-    <meta property="og:title" content="weReaDou - 连接豆瓣和微信读书">
-    <meta property="og:site_name" content="weReaDou">
-    <meta property="og:url" content="https://wereadou.sorosliu.xyz/">
-    <meta property="og:description" content="✳️ 在豆瓣中显示微信读书的可读状态">
-    <meta property="og:type" content="">
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@sorosliu1029" />
-    <meta name="twitter:creator" content="@sorosliu1029" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/icon@32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icon@16.png">
-    <meta name="msapplication-TileColor" content="##00C600">
-    <meta name="theme-color" content="#ffffff">
-
-    <link href="./output.css" rel="stylesheet">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/platform@1.3.6/platform.min.js"></script>
-
-    <!-- go to different browser store -->
-    <script>
-        const FIREFOX_STORE_URL = 'https://addons.mozilla.org/en-US/firefox/addon/wereadouban/'
-        const CHROME_STORE_URL = 'https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl'
-        const EDGE_STORE_URL = 'https://microsoftedge.microsoft.com/addons/detail/wereadou/molknegjakahlleblehcapmofenkmnna'
-        function doClickInstall() {
-            switch (platform.name) {
-                case 'Firefox':
-                    window.location.href = FIREFOX_STORE_URL
-                    break
-                case 'Microsoft Edge':
-                    window.location.href = EDGE_STORE_URL
-                    break
-                case 'Chrome':
-                default:
-                    window.location.href = CHROME_STORE_URL
-            }
-            return false
-        }
-    </script>
-</head>
-<body>
-    <header class="fixed w-full">
-        <nav class="bg-white border-gray-200 py-2.5 dark:bg-gray-900">
-            <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
-                <a href="#" class="flex items-center">
-                    <img src="./icon@128.png" class="h-6 mr-3 sm:h-9" alt="weReaDou Logo" />
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">weReaDou</span>
-                </a>
-                <div class="flex items-center lg:order-2">
-                    <div class="hidden mt-2 mr-4 sm:inline-block">
-                        <a class="github-button" href="https://github.com/Sorosliu1029/weReaDou" data-size="large" data-icon="octicon-star" data-show-count="true" aria-label="Star Sorosliu1029/weReaDou on GitHub">Star</a>
-                        <a class="github-button" href="https://github.com/Sorosliu1029/weReaDou/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue Sorosliu1029/weReaDou on GitHub">Issue</a>
-                        <a class="github-button" href="https://github.com/sponsors/Sorosliu1029" data-icon="octicon-heart" data-size="large" aria-label="Sponsor @Sorosliu1029 on GitHub">Sponsor</a>
-                    </div>
-                    <a href="https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl" onclick="return doClickInstall();" class="text-white bg-dou-700 hover:bg-dou-800 focus:ring-4 focus:ring-dou-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 sm:mr-2 lg:mr-0 dark:bg-dou-600 dark:hover:bg-dou-700 focus:outline-none dark:focus:ring-dou-800">Install</a>
-                    <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                        <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </button>
-                </div>
-                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                        <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-dou-700 rounded lg:bg-transparent lg:text-dou-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/Sorosliu1029/weReaDou" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-dou-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">GitHub</a>
-                        </li>
-                        <li>
-                            <a href="mailto:soros.liu1029@gmail.com" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-dou-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <meta property="og:title" content="weReaDou — 从发现好书，到开始阅读" />
+    <meta
+      property="og:description"
+      content="让豆瓣和微信读书之间，只差一次点击。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wereadou.sorosliu.xyz/" />
+    <meta
+      property="og:image"
+      content="https://wereadou.sorosliu.xyz/screenshot.png"
+    />
+    <meta name="theme-color" content="#f8f8f2" />
+    <link rel="icon" type="image/png" href="./icon@32.png" />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body>
+    <svg
+      class="icon-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="check" viewBox="0 0 24 24">
+          <path d="m5 12 4 4L19 6" />
+        </symbol>
+        <symbol id="book" viewBox="0 0 24 24">
+          <path
+            d="M12 5v15M3 4c4-1 6 0 9 2 3-2 5-3 9-2v14c-4-1-6 0-9 2-3-2-5-3-9-2Z"
+          />
+        </symbol>
+        <symbol id="github" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            stroke="none"
+            d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.95 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03A9.6 9.6 0 0 1 12 6.81c.85 0 1.71.11 2.5.34 1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.86v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+          />
+        </symbol>
+        <symbol id="logo-chrome" viewBox="0 0 496 512">
+          <path d="M256 140h228A256 256 0 0 1 244 511.7" fill="#fc4" />
+          <path d="M357 314 244 511.7A256 256 0 0 1 40 118" fill="#0f9d58" />
+          <path d="M256 140h228A256 256 1 0 0 40 118L155 314" fill="#db4437" />
+          <circle
+            cx="256"
+            cy="256"
+            r="105"
+            fill="#4285f4"
+            stroke="#f1f1f1"
+            stroke-width="24"
+          />
+        </symbol>
+        <symbol id="logo-firefox" viewBox="0 0 51500 51500">
+          <radialGradient
+            id="b"
+            cx="87.4%"
+            cy="-12.9%"
+            r="128%"
+            gradientTransform="matrix(.8 0 0 1 .18 .13)"
+          >
+            <stop offset=".13" stop-color="#ffbd4f" />
+            <stop offset=".28" stop-color="#ff980e" />
+            <stop offset=".47" stop-color="#ff3750" />
+            <stop offset=".78" stop-color="#eb0878" />
+            <stop offset=".86" stop-color="#e50080" />
+          </radialGradient>
+          <radialGradient
+            id="d"
+            cx="49%"
+            cy="40%"
+            r="128%"
+            gradientTransform="matrix(.82 0 0 1 .09 0)"
+          >
+            <stop offset=".3" stop-color="#960e18" />
+            <stop offset=".35" stop-color="#b11927" stop-opacity=".74" />
+            <stop offset=".43" stop-color="#db293d" stop-opacity=".34" />
+            <stop offset=".5" stop-color="#f5334b" stop-opacity=".1" />
+            <stop offset=".53" stop-color="#ff3750" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="e" cx="48%" cy="-12%" r="140%">
+            <stop offset=".13" stop-color="#fff44f" />
+            <stop offset=".53" stop-color="#ff980e" />
+          </radialGradient>
+          <radialGradient id="f" cx="22.76%" cy="110.11%" r="100%">
+            <stop offset=".35" stop-color="#3a8ee6" />
+            <stop offset=".67" stop-color="#9059ff" />
+            <stop offset="1" stop-color="#c139e6" />
+          </radialGradient>
+          <radialGradient
+            id="h"
+            cx="52%"
+            cy="33%"
+            r="59%"
+            gradientTransform="scale(.9 1)"
+          >
+            <stop offset=".21" stop-color="#9059ff" stop-opacity="0" />
+            <stop offset=".97" stop-color="#6e008b" stop-opacity=".6" />
+          </radialGradient>
+          <radialGradient id="i" cx="210%" cy="-100%" r="290%">
+            <stop offset=".1" stop-color="#ffe226" />
+            <stop offset=".79" stop-color="#ff7139" />
+          </radialGradient>
+          <radialGradient id="j" cx="84%" cy="-41%" r="180%">
+            <stop offset=".11" stop-color="#fff44f" />
+            <stop offset=".46" stop-color="#ff980e" />
+            <stop offset=".72" stop-color="#ff3647" />
+            <stop offset=".9" stop-color="#e31587" />
+          </radialGradient>
+          <radialGradient
+            id="k"
+            cx="16.1%"
+            cy="-18.6%"
+            r="348.8%"
+            gradientTransform="matrix(.10453 .46743 -.99452 .04913 -.05 -.26)"
+          >
+            <stop offset="0" stop-color="#fff44f" />
+            <stop offset=".3" stop-color="#ff980e" />
+            <stop offset=".57" stop-color="#ff3647" />
+            <stop offset=".74" stop-color="#e31587" />
+          </radialGradient>
+          <radialGradient id="l" cx="18.9%" cy="-42.5%" r="238.4%">
+            <stop offset=".14" stop-color="#fff44f" />
+            <stop offset=".48" stop-color="#ff980e" />
+            <stop offset=".66" stop-color="#ff3647" />
+            <stop offset=".9" stop-color="#e31587" />
+          </radialGradient>
+          <radialGradient id="m" cx="159.3%" cy="-44.72%" r="313.1%">
+            <stop offset=".09" stop-color="#fff44f" />
+            <stop offset=".63" stop-color="#ff980e" />
+          </radialGradient>
+          <linearGradient id="a" x1="87.25%" x2="9.4%" y1="15.5%" y2="93.1%">
+            <stop offset=".05" stop-color="#fff44f" />
+            <stop offset=".37" stop-color="#ff980e" />
+            <stop offset=".53" stop-color="#ff3647" />
+            <stop offset=".7" stop-color="#e31587" />
+          </linearGradient>
+          <linearGradient id="n" x1="80%" x2="18%" y1="14%" y2="84%">
+            <stop offset=".17" stop-color="#fff44f" stop-opacity=".8" />
+            <stop offset=".6" stop-color="#fff44f" stop-opacity="0" />
+          </linearGradient>
+          <path
+            id="c"
+            d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294 0-6 2 5 4 22l4 26c2268 6147 1032 12398-748 16218-2754 5910-9420 11967-19857 11670-11276-318-21210-8683-23064-19643-338-1728 0-2605 170-4008-207 1080-286 1394-390 3315l-2 123c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075z"
+          />
+          <path
+            id="g"
+            d="M25677 21050c-40 598-2150 2660-2890 2660-6834 0-7943 4133-7943 4133 303 3480 2726 6348 5660 7865 134 70 270 130 405 193a13277 13277 0 00706 289 10674 10674 0 003127 603c11978 562 14300-14320 5655-18640 2213-385 4510 505 5794 1407-2100-3672-6025-6150-10530-6150-285 0-564 24-844 43a12025 12025 0 00-6614 2549c366 310 780 724 1650 1583 1630 1606 5813 3270 5822 3465z"
+          />
+          <path
+            fill="url(#a)"
+            d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294l5 40c-2718-6773-7325-9505-11088-15452l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10 10-14c-6037 3536-8085 10076-8274 13350a12025 12025 0 00-6614 2548 7136 7136 0 00-622-470 11134 11134 0 01-68-5873c-2468 1124-4390 2900-5785 4470h-10c-953-1206-886-5187-832-6018-10-52-710 363-802 425a17507 17507 0 00-2349 2012 21048 21048 0 00-2244 2692l-1 3v-3a20284 20284 0 00-3225 7280l-32 160a39700 39700 0 00-237 1500l-5 52a22907 22907 0 00-390 3316l-1 120c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075zM20170 35545c113 53 220 112 334 164l16 10a12620 12620 0 01-350-174zm5506-14493zm19813-3060l-3-23 4 26z"
+          />
+          <use fill="url(#b)" xlink:href="#c" />
+          <use fill="url(#d)" xlink:href="#c" />
+          <path
+            fill="url(#e)"
+            d="M36192 19560l150 110a13070 13070 0 00-2231-2911C26640 9290 32150 563 33080 120l10-13c-6037 3535-8085 10076-8273 13348 280-20 560-43 844-43 4505 0 8430 2477 10530 6150z"
+          />
+          <use fill="url(#f)" xlink:href="#g" />
+          <use fill="url(#h)" xlink:href="#g" />
+          <path
+            fill="url(#i)"
+            d="M17083 15204a24404 24404 0 01498 330 11134 11134 0 01-67-5874c-2470 1125-4390 2900-5785 4470 115-3 3600-66 5354 1074z"
+          />
+          <path
+            fill="url(#j)"
+            d="M1822 26240c1855 10960 11788 19325 23063 19644 10437 296 17104-5762 19858-11670 1780-3820 3016-10070 748-16218v-2l-4-24c-2-17-4-28-4-22l5 40c853 5566-1980 10958-6405 14604l-13 30c-8625 7023-16878 4237-18550 3097a14410 14410 0 01-350-174c-5028-2403-7105-6984-6660-10913-4245 0-5693-3580-5693-3580s3812-2718 8836-355c4653 2190 9023 355 9023 354-10-195-4192-1860-5822-3465-872-860-1285-1272-1652-1583a7136 7136 0 00-622-470 28293 28293 0 00-498-330c-1753-1140-5240-1076-5355-1073h-10c-953-1207-886-5188-832-6020-10-50-710 363-802 426a17507 17507 0 00-2349 2012 21048 21048 0 00-2244 2692l-1 3v-3a20284 20284 0 00-3225 7280c-10 52-865 3784-444 5720z"
+          />
+          <path
+            fill="url(#k)"
+            d="M34110 16760a13070 13070 0 012231 2910l360 296c5450 5020 2594 12120 2380 12626 4426-3646 7258-9038 6405-14604-2716-6774-7323-9506-11086-15453l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10c-930 443-6440 9170 1030 16640z"
+          />
+          <path
+            fill="url(#l)"
+            d="M36702 19965a4743 4743 0 00-360-295l-150-110c-1283-900-3580-1792-5794-1407 8644 4322 6323 19203-5655 18640a10674 10674 0 01-3127-603 13451 13451 0 01-706-289 9064 9064 0 01-405-193l16 10c1670 1140 9924 3925 18550-3097l13-30c213-506 3068-7606-2380-12626z"
+          />
+          <path
+            fill="url(#m)"
+            d="M14844 27844s1110-4133 7943-4133c740 0 2850-2062 2890-2660s-4370 1836-9023-354c-5024-2363-8836 354-8836 354s1448 3580 5693 3580c-445 3930 1632 8510 6660 10913 113 53 218 112 334 164-2935-1517-5358-4384-5660-7865z"
+          />
+          <path
+            fill="url(#n)"
+            d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294l5 40c-2718-6773-7325-9505-11088-15452l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10 10-14c-6037 3536-8085 10076-8274 13350 280-20 560-43 845-43 4505 0 8430 2477 10530 6148-1284-900-3580-1792-5795-1407 8644 4322 6323 19203-5655 18640a10674 10674 0 01-3127-603 13451 13451 0 01-706-289 9064 9064 0 01-405-193l17 10a14410 14410 0 01-350-174c112 53 218 112 333 164-2935-1517-5358-4384-5660-7865 0 0 1108-4133 7942-4133 740 0 2850-2062 2890-2660-10-195-4190-1860-5822-3465-870-860-1285-1272-1650-1583a7136 7136 0 00-623-470 11134 11134 0 01-67-5873c-2470 1124-4390 2900-5785 4470h-10c-953-1207-886-5187-832-6020-10-50-710 363-802 426a17507 17507 0 00-2349 2012 21048 21048 0 00-2243 2692l-1 3v-3a20284 20284 0 00-3225 7280l-32 160a39787 39787 0 00-277 1515c-2 18 2-17 0 0a27956 27956 0 00-355 3353l-3 122c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075zm-2384 1234l4 26v-2l-4-24z"
+          />
+        </symbol>
+        <symbol id="logo-edge" viewBox="0 0 27600 27600">
+          <linearGradient id="A" gradientUnits="userSpaceOnUse" />
+          <linearGradient
+            id="B"
+            x1="6870"
+            x2="24704"
+            y1="18705"
+            y2="18705"
+            xlink:href="#A"
+          >
+            <stop offset="0" stop-color="#0c59a4" />
+            <stop offset="1" stop-color="#114a8b" />
+          </linearGradient>
+          <linearGradient
+            id="C"
+            x1="16272"
+            x2="5133"
+            y1="10968"
+            y2="23102"
+            xlink:href="#A"
+          >
+            <stop offset="0" stop-color="#1b9de2" />
+            <stop offset=".16" stop-color="#1595df" />
+            <stop offset=".67" stop-color="#0680d7" />
+            <stop offset="1" stop-color="#0078d4" />
+          </linearGradient>
+          <radialGradient id="D" cx="16720" cy="18747" r="9538" xlink:href="#A">
+            <stop offset=".72" stop-opacity="0" />
+            <stop offset=".95" stop-opacity=".53" />
+            <stop offset="1" />
+          </radialGradient>
+          <radialGradient
+            id="E"
+            cx="7130"
+            cy="19866"
+            r="14324"
+            gradientTransform="matrix(.14843 -.98892 .79688 .1196 -8759 25542)"
+            xlink:href="#A"
+          >
+            <stop offset=".76" stop-opacity="0" />
+            <stop offset=".95" stop-opacity=".5" />
+            <stop offset="1" />
+          </radialGradient>
+          <radialGradient
+            id="F"
+            cx="2523"
+            cy="4680"
+            r="20243"
+            gradientTransform="matrix(-.03715 .99931 -2.12836 -.07913 13579 3530)"
+            xlink:href="#A"
+          >
+            <stop offset="0" stop-color="#35c1f1" />
+            <stop offset=".11" stop-color="#34c1ed" />
+            <stop offset=".23" stop-color="#2fc2df" />
+            <stop offset=".31" stop-color="#2bc3d2" />
+            <stop offset=".67" stop-color="#36c752" />
+          </radialGradient>
+          <radialGradient
+            id="G"
+            cx="24247"
+            cy="7758"
+            r="9734"
+            gradientTransform="matrix(.28109 .95968 -.78353 .22949 24510 -16292)"
+            xlink:href="#A"
+          >
+            <stop offset="0" stop-color="#66eb6e" />
+            <stop offset="1" stop-color="#66eb6e" stop-opacity="0" />
+          </radialGradient>
+          <path
+            id="H"
+            d="M24105 20053a9345 9345 0 01-1053 472 10202 10202 0 01-3590 646c-4732 0-8855-3255-8855-7432 0-1175 680-2193 1643-2729-4280 180-5380 4640-5380 7253 0 7387 6810 8137 8276 8137 791 0 1984-230 2704-456l130-44a12834 12834 0 006660-5282c220-350-168-757-535-565z"
+          />
+          <path
+            id="I"
+            d="M11571 25141a7913 7913 0 01-2273-2137 8145 8145 0 01-1514-4740 8093 8093 0 013093-6395 8082 8082 0 011373-859c312-148 846-414 1554-404a3236 3236 0 012569 1297 3184 3184 0 01636 1866c0-21 2446-7960-8005-7960-4390 0-8004 4166-8004 7820 0 2319 538 4170 1212 5604a12833 12833 0 007684 6757 12795 12795 0 003908 610c1414 0 2774-233 4045-656a7575 7575 0 01-6278-803z"
+          />
+          <path
+            id="J"
+            d="M16231 15886c-80 105-330 250-330 566 0 260 170 512 472 723 1438 1003 4149 868 4156 868a5954 5954 0 003027-839 6147 6147 0 001133-850 6180 6180 0 001910-4437c26-2242-796-3732-1133-4392-2120-4141-6694-6525-11668-6525-7011 0-12703 5635-12798 12620 47-3654 3679-6605 7996-6605 350 0 2346 34 4200 1007 1634 858 2490 1894 3086 2921 618 1067 728 2415 728 2952s-271 1333-780 1990z"
+          />
+          <use fill="url(#B)" xlink:href="#H" />
+          <use fill="url(#D)" opacity=".35" xlink:href="#H" />
+          <use fill="url(#C)" xlink:href="#I" />
+          <use fill="url(#E)" opacity=".4" xlink:href="#I" />
+          <use fill="url(#F)" xlink:href="#J" />
+          <use fill="url(#G)" xlink:href="#J" />
+        </symbol>
+      </defs>
+    </svg>
+    <a class="skip-link" href="#main">跳至主要内容</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="wordmark" href="#" aria-label="weReaDou 首页"
+          ><img src="./icon@32.png" width="30" height="30" alt="" /><span
+            >weReaDou<span class="brand-period">.</span></span
+          ></a
+        >
+        <nav aria-label="主导航">
+          <a href="#features">为什么用它</a><a href="#how-it-works">如何使用</a
+          ><a
+            class="nav-github"
+            href="https://github.com/Sorosliu1029/weReaDou"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub ↗</a
+          >
         </nav>
+        <a class="button button-small" href="#install"
+          >免费安装 <svg class="icon"><use href="#arrow" /></svg
+        ></a>
+      </div>
     </header>
-
-    <!-- Start block -->
-    <section class="bg-white dark:bg-gray-900">
-        <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-8 lg:grid-cols-12 lg:pt-28">
-            <div class="mr-auto place-self-center lg:col-span-7">
-                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">在豆瓣里看<br />微信读书的可读</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">对于豆瓣中收录的书籍条目，使用 weReaDou 可以显示微信读书中是否可阅读该书籍，并可跳转至微信读书网页版对应的书籍页面</p>
-                <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <a href="https://github.com/Sorosliu1029/weReaDou" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-                        View on GitHub
-                    </a>
-                    <a id="install-on-chrome" href="https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl" class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-label="Chrome" role="img" viewBox="0 0 496 512"><path d="M256 140h228A256 256 0 0 1 244 511.7" fill="#fc4"/><path d="M357 314 244 511.7A256 256 0 0 1 40 118" fill="#0f9d58"/><path d="M256 140h228A256 256 1 0 0 40 118L155 314" fill="#db4437"/><circle cx="256" cy="256" r="105" fill="#4285f4" stroke="#f1f1f1" stroke-width="24"/></svg>
-                        Install on Chrome
-                    </a>
-                    <a id="install-on-firefox" href="https://addons.mozilla.org/en-US/firefox/addon/wereadouban/" class="hidden items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" viewBox="0 0 51500 51500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><radialGradient id="b" cx="87.4%" cy="-12.9%" r="128%" gradientTransform="matrix(.8 0 0 1 .18 .13)"><stop offset=".13" stop-color="#ffbd4f"/><stop offset=".28" stop-color="#ff980e"/><stop offset=".47" stop-color="#ff3750"/><stop offset=".78" stop-color="#eb0878"/><stop offset=".86" stop-color="#e50080"/></radialGradient><radialGradient id="d" cx="49%" cy="40%" r="128%" gradientTransform="matrix(.82 0 0 1 .09 0)"><stop offset=".3" stop-color="#960e18"/><stop offset=".35" stop-color="#b11927" stop-opacity=".74"/><stop offset=".43" stop-color="#db293d" stop-opacity=".34"/><stop offset=".5" stop-color="#f5334b" stop-opacity=".1"/><stop offset=".53" stop-color="#ff3750" stop-opacity="0"/></radialGradient><radialGradient id="e" cx="48%" cy="-12%" r="140%"><stop offset=".13" stop-color="#fff44f"/><stop offset=".53" stop-color="#ff980e"/></radialGradient><radialGradient id="f" cx="22.76%" cy="110.11%" r="100%"><stop offset=".35" stop-color="#3a8ee6"/><stop offset=".67" stop-color="#9059ff"/><stop offset="1" stop-color="#c139e6"/></radialGradient><radialGradient id="h" cx="52%" cy="33%" r="59%" gradientTransform="scale(.9 1)"><stop offset=".21" stop-color="#9059ff" stop-opacity="0"/><stop offset=".97" stop-color="#6e008b" stop-opacity=".6"/></radialGradient><radialGradient id="i" cx="210%" cy="-100%" r="290%"><stop offset=".1" stop-color="#ffe226"/><stop offset=".79" stop-color="#ff7139"/></radialGradient><radialGradient id="j" cx="84%" cy="-41%" r="180%"><stop offset=".11" stop-color="#fff44f"/><stop offset=".46" stop-color="#ff980e"/><stop offset=".72" stop-color="#ff3647"/><stop offset=".9" stop-color="#e31587"/></radialGradient><radialGradient id="k" cx="16.1%" cy="-18.6%" r="348.8%" gradientTransform="matrix(.10453 .46743 -.99452 .04913 -.05 -.26)"><stop offset="0" stop-color="#fff44f"/><stop offset=".3" stop-color="#ff980e"/><stop offset=".57" stop-color="#ff3647"/><stop offset=".74" stop-color="#e31587"/></radialGradient><radialGradient id="l" cx="18.9%" cy="-42.5%" r="238.4%"><stop offset=".14" stop-color="#fff44f"/><stop offset=".48" stop-color="#ff980e"/><stop offset=".66" stop-color="#ff3647"/><stop offset=".9" stop-color="#e31587"/></radialGradient><radialGradient id="m" cx="159.3%" cy="-44.72%" r="313.1%"><stop offset=".09" stop-color="#fff44f"/><stop offset=".63" stop-color="#ff980e"/></radialGradient><linearGradient id="a" x1="87.25%" x2="9.4%" y1="15.5%" y2="93.1%"><stop offset=".05" stop-color="#fff44f"/><stop offset=".37" stop-color="#ff980e"/><stop offset=".53" stop-color="#ff3647"/><stop offset=".7" stop-color="#e31587"/></linearGradient><linearGradient id="n" x1="80%" x2="18%" y1="14%" y2="84%"><stop offset=".17" stop-color="#fff44f" stop-opacity=".8"/><stop offset=".6" stop-color="#fff44f" stop-opacity="0"/></linearGradient><path id="c" d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294 0-6 2 5 4 22l4 26c2268 6147 1032 12398-748 16218-2754 5910-9420 11967-19857 11670-11276-318-21210-8683-23064-19643-338-1728 0-2605 170-4008-207 1080-286 1394-390 3315l-2 123c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075z"/><path id="g" d="M25677 21050c-40 598-2150 2660-2890 2660-6834 0-7943 4133-7943 4133 303 3480 2726 6348 5660 7865 134 70 270 130 405 193a13277 13277 0 00706 289 10674 10674 0 003127 603c11978 562 14300-14320 5655-18640 2213-385 4510 505 5794 1407-2100-3672-6025-6150-10530-6150-285 0-564 24-844 43a12025 12025 0 00-6614 2549c366 310 780 724 1650 1583 1630 1606 5813 3270 5822 3465z"/><path fill="url(#a)" d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294l5 40c-2718-6773-7325-9505-11088-15452l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10 10-14c-6037 3536-8085 10076-8274 13350a12025 12025 0 00-6614 2548 7136 7136 0 00-622-470 11134 11134 0 01-68-5873c-2468 1124-4390 2900-5785 4470h-10c-953-1206-886-5187-832-6018-10-52-710 363-802 425a17507 17507 0 00-2349 2012 21048 21048 0 00-2244 2692l-1 3v-3a20284 20284 0 00-3225 7280l-32 160a39700 39700 0 00-237 1500l-5 52a22907 22907 0 00-390 3316l-1 120c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075zM20170 35545c113 53 220 112 334 164l16 10a12620 12620 0 01-350-174zm5506-14493zm19813-3060l-3-23 4 26z"/><use fill="url(#b)" xlink:href="#c"/><use fill="url(#d)" xlink:href="#c"/><path fill="url(#e)" d="M36192 19560l150 110a13070 13070 0 00-2231-2911C26640 9290 32150 563 33080 120l10-13c-6037 3535-8085 10076-8273 13348 280-20 560-43 844-43 4505 0 8430 2477 10530 6150z"/><use fill="url(#f)" xlink:href="#g"/><use fill="url(#h)" xlink:href="#g"/><path fill="url(#i)" d="M17083 15204a24404 24404 0 01498 330 11134 11134 0 01-67-5874c-2470 1125-4390 2900-5785 4470 115-3 3600-66 5354 1074z"/><path fill="url(#j)" d="M1822 26240c1855 10960 11788 19325 23063 19644 10437 296 17104-5762 19858-11670 1780-3820 3016-10070 748-16218v-2l-4-24c-2-17-4-28-4-22l5 40c853 5566-1980 10958-6405 14604l-13 30c-8625 7023-16878 4237-18550 3097a14410 14410 0 01-350-174c-5028-2403-7105-6984-6660-10913-4245 0-5693-3580-5693-3580s3812-2718 8836-355c4653 2190 9023 355 9023 354-10-195-4192-1860-5822-3465-872-860-1285-1272-1652-1583a7136 7136 0 00-622-470 28293 28293 0 00-498-330c-1753-1140-5240-1076-5355-1073h-10c-953-1207-886-5188-832-6020-10-50-710 363-802 426a17507 17507 0 00-2349 2012 21048 21048 0 00-2244 2692l-1 3v-3a20284 20284 0 00-3225 7280c-10 52-865 3784-444 5720z"/><path fill="url(#k)" d="M34110 16760a13070 13070 0 012231 2910l360 296c5450 5020 2594 12120 2380 12626 4426-3646 7258-9038 6405-14604-2716-6774-7323-9506-11086-15453l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10c-930 443-6440 9170 1030 16640z"/><path fill="url(#l)" d="M36702 19965a4743 4743 0 00-360-295l-150-110c-1283-900-3580-1792-5794-1407 8644 4322 6323 19203-5655 18640a10674 10674 0 01-3127-603 13451 13451 0 01-706-289 9064 9064 0 01-405-193l16 10c1670 1140 9924 3925 18550-3097l13-30c213-506 3068-7606-2380-12626z"/><path fill="url(#m)" d="M14844 27844s1110-4133 7943-4133c740 0 2850-2062 2890-2660s-4370 1836-9023-354c-5024-2363-8836 354-8836 354s1448 3580 5693 3580c-445 3930 1632 8510 6660 10913 113 53 218 112 334 164-2935-1517-5358-4384-5660-7865z"/><path fill="url(#n)" d="M47870 16735c-1044-2512-3160-5224-4820-6082 1352 2650 2134 5310 2433 7294l5 40c-2718-6773-7325-9505-11088-15452l-566-920a7372 7372 0 01-265-497 4370 4370 0 01-359-950 63 63 0 00-55-65 82 82 0 00-45 0l-12 7-17 10 10-14c-6037 3536-8085 10076-8274 13350 280-20 560-43 845-43 4505 0 8430 2477 10530 6148-1284-900-3580-1792-5795-1407 8644 4322 6323 19203-5655 18640a10674 10674 0 01-3127-603 13451 13451 0 01-706-289 9064 9064 0 01-405-193l17 10a14410 14410 0 01-350-174c112 53 218 112 333 164-2935-1517-5358-4384-5660-7865 0 0 1108-4133 7942-4133 740 0 2850-2062 2890-2660-10-195-4190-1860-5822-3465-870-860-1285-1272-1650-1583a7136 7136 0 00-623-470 11134 11134 0 01-67-5873c-2470 1124-4390 2900-5785 4470h-10c-953-1207-886-5187-832-6020-10-50-710 363-802 426a17507 17507 0 00-2349 2012 21048 21048 0 00-2243 2692l-1 3v-3a20284 20284 0 00-3225 7280l-32 160a39787 39787 0 00-277 1515c-2 18 2-17 0 0a27956 27956 0 00-355 3353l-3 122c0 13270 10760 24030 24032 24030 11887 0 21756-8630 23690-19963l110-927c477-4120-53-8453-1560-12075zm-2384 1234l4 26v-2l-4-24z"/></svg>
-                        Install on Firefox
-                    </a>
-                    <a id="install-on-edge" href="https://microsoftedge.microsoft.com/addons/detail/wereadou/molknegjakahlleblehcapmofenkmnna" class="hidden items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                        <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" viewBox="0 0 27600 27600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="A" gradientUnits="userSpaceOnUse"/><linearGradient id="B" x1="6870" x2="24704" y1="18705" y2="18705" xlink:href="#A"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient><linearGradient id="C" x1="16272" x2="5133" y1="10968" y2="23102" xlink:href="#A"><stop offset="0" stop-color="#1b9de2"/><stop offset=".16" stop-color="#1595df"/><stop offset=".67" stop-color="#0680d7"/><stop offset="1" stop-color="#0078d4"/></linearGradient><radialGradient id="D" cx="16720" cy="18747" r="9538" xlink:href="#A"><stop offset=".72" stop-opacity="0"/><stop offset=".95" stop-opacity=".53"/><stop offset="1"/></radialGradient><radialGradient id="E" cx="7130" cy="19866" r="14324" gradientTransform="matrix(.14843 -.98892 .79688 .1196 -8759 25542)" xlink:href="#A"><stop offset=".76" stop-opacity="0"/><stop offset=".95" stop-opacity=".5"/><stop offset="1"/></radialGradient><radialGradient id="F" cx="2523" cy="4680" r="20243" gradientTransform="matrix(-.03715 .99931 -2.12836 -.07913 13579 3530)" xlink:href="#A"><stop offset="0" stop-color="#35c1f1"/><stop offset=".11" stop-color="#34c1ed"/><stop offset=".23" stop-color="#2fc2df"/><stop offset=".31" stop-color="#2bc3d2"/><stop offset=".67" stop-color="#36c752"/></radialGradient><radialGradient id="G" cx="24247" cy="7758" r="9734" gradientTransform="matrix(.28109 .95968 -.78353 .22949 24510 -16292)" xlink:href="#A"><stop offset="0" stop-color="#66eb6e"/><stop offset="1" stop-color="#66eb6e" stop-opacity="0"/></radialGradient><path id="H" d="M24105 20053a9345 9345 0 01-1053 472 10202 10202 0 01-3590 646c-4732 0-8855-3255-8855-7432 0-1175 680-2193 1643-2729-4280 180-5380 4640-5380 7253 0 7387 6810 8137 8276 8137 791 0 1984-230 2704-456l130-44a12834 12834 0 006660-5282c220-350-168-757-535-565z"/><path id="I" d="M11571 25141a7913 7913 0 01-2273-2137 8145 8145 0 01-1514-4740 8093 8093 0 013093-6395 8082 8082 0 011373-859c312-148 846-414 1554-404a3236 3236 0 012569 1297 3184 3184 0 01636 1866c0-21 2446-7960-8005-7960-4390 0-8004 4166-8004 7820 0 2319 538 4170 1212 5604a12833 12833 0 007684 6757 12795 12795 0 003908 610c1414 0 2774-233 4045-656a7575 7575 0 01-6278-803z"/><path id="J" d="M16231 15886c-80 105-330 250-330 566 0 260 170 512 472 723 1438 1003 4149 868 4156 868a5954 5954 0 003027-839 6147 6147 0 001133-850 6180 6180 0 001910-4437c26-2242-796-3732-1133-4392-2120-4141-6694-6525-11668-6525-7011 0-12703 5635-12798 12620 47-3654 3679-6605 7996-6605 350 0 2346 34 4200 1007 1634 858 2490 1894 3086 2921 618 1067 728 2415 728 2952s-271 1333-780 1990z"/><use fill="url(#B)" xlink:href="#H"/><use fill="url(#D)" opacity=".35" xlink:href="#H"/><use fill="url(#C)" xlink:href="#I"/><use fill="url(#E)" opacity=".4" xlink:href="#I"/><use fill="url(#F)" xlink:href="#J"/><use fill="url(#G)" xlink:href="#J"/></svg>
-                        Install on Edge
-                    </a>
+    <main id="main">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="status-dot"></span> 给爱读书的你，一个小小的连接
+          </div>
+          <h1 id="hero-title">
+            在豆瓣，发现好书。<br />在微信读书，<br /><span class="marked"
+              >翻开下一页。</span
+            >
+          </h1>
+          <p class="hero-description">
+            这本书，微信读书上有吗？<br />让 weReaDou
+            替你找。可读状态直接显示在豆瓣，<br
+              class="desktop-break"
+            />从心动到开读，不必再来回搜索。
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button primary-install"
+              href="https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><svg class="browser-icon" aria-hidden="true">
+                <use href="#logo-chrome" /></svg
+              ><span class="install-label">添加至 Chrome</span
+              ><svg class="icon"><use href="#arrow" /></svg></a
+            ><button class="text-button" data-open-preview>
+              看看实际效果 <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div class="hero-notes">
+            <span
+              ><svg class="icon"><use href="#check" /></svg> 免费使用</span
+            ><span
+              ><svg class="icon"><use href="#check" /></svg> 开源项目</span
+            ><span
+              ><svg class="icon"><use href="#check" /></svg> 轻巧不打扰</span
+            >
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-topline">
+            <span>少一点切换，多一点阅读。</span
+            ><span class="little-star" aria-hidden="true">✳︎</span>
+          </div>
+          <div class="browser-window" aria-label="豆瓣书籍页面的简化效果演示">
+            <div class="browser-toolbar">
+              <div class="window-dots" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+              <span class="address">book.douban.com/subject/2035179</span
+              ><span class="toolbar-more" aria-hidden="true">⋯</span>
+            </div>
+            <div class="douban-header">
+              <strong>豆瓣读书</strong><span>读书 · 发现 · 书单</span>
+            </div>
+            <div class="book-page">
+              <div class="book-heading">
+                <h2>动物农场</h2>
+                <span>Animal Farm</span>
+              </div>
+              <div class="book-details">
+                <div class="book-cover">
+                  <span class="cover-author">GEORGE ORWELL</span
+                  ><strong>动物<br />农场</strong>
+                  <div class="cover-art" aria-hidden="true">✳︎</div>
+                  <span class="cover-title">ANIMAL FARM</span>
                 </div>
+                <div class="book-meta">
+                  <p>作者：<span>[英] 乔治·奥威尔</span></p>
+                  <p>出版社：上海译文出版社</p>
+                  <p>原作名：Animal Farm</p>
+                  <p>译者：荣如德</p>
+                  <p>出版年：2007-3</p>
+                  <div class="rating">
+                    <b>9.2</b><span>★★★★★<small>豆瓣评分</small></span>
+                  </div>
+                </div>
+              </div>
+              <div class="book-controls">
+                <span>想读</span><span>在读</span><span>读过</span
+                ><span class="book-stars">☆☆☆☆☆</span>
+              </div>
+              <div class="reading-result" id="reading-result">
+                <div class="result-heading">
+                  <img
+                    src="./icon@32.png"
+                    alt=""
+                    width="20"
+                    height="20"
+                  /><strong>在微信读书中可读</strong
+                  ><span class="result-check">✓</span>
+                </div>
+                <div class="result-body">
+                  <div class="mini-cover" aria-hidden="true">
+                    动物<br />农场
+                  </div>
+                  <div><b>动物农场</b><span>乔治·奥威尔</span></div>
+                  <span class="read-link"
+                    >去微信读书 <svg class="icon"><use href="#arrow" /></svg
+                  ></span>
+                </div>
+              </div>
+              <div class="without-result" hidden>
+                原来的豆瓣页面没有微信读书收录信息。<br />需要另开页面，手动搜索这本书。
+              </div>
+              <div class="mock-description">
+                <strong>内容简介 · · · · · ·</strong>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="./screenshot.png" alt="hero image">
-            </div>                
+          </div>
+          <div class="annotation">
+            <span aria-hidden="true">↖</span> 好书的下一站，就在这里
+          </div>
+          <div class="demo-switch" role="group" aria-label="对比安装前后">
+            <button class="active" aria-pressed="true" data-demo="after">
+              有 weReaDou</button
+            ><button aria-pressed="false" data-demo="before">没有扩展时</button>
+          </div>
+          <p class="demo-caption">界面示意 · 实际收录情况以微信读书为准</p>
         </div>
-    </section>
-    <!-- End block -->
-    <footer class="bg-white dark:bg-gray-800">
-        <div class="max-w-screen-xl p-4 py-2 mx-auto lg:py-8 md:p-4 lg:p-5">
-            <div class="text-center">
-                <a href="#" class="flex items-center justify-center mb-5 text-2xl font-semibold text-gray-900 dark:text-white">
-                    <img src="./icon@128.png" class="h-6 mr-3 sm:h-9" alt="weReaDou Logo" />weReaDou    
-                </a>
-                <span class="block text-sm text-center text-gray-500 dark:text-gray-400">© 2020-now weReaDou. All Rights Reserved. Built with <a href="https://flowbite.com" class="text-dou-600 hover:underline dark:text-dou-500">Flowbite</a> and <a href="https://tailwindcss.com" class="text-dou-600 hover:underline dark:text-dou-500">Tailwind CSS</a>.
-                </span>
-                <ul class="flex justify-center mt-5 space-x-5">
-                    <li>
-                        <a href="https://github.com/Sorosliu1029/weReaDou" class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" /></svg>
-                        </a>
-                    </li>
-                </ul>
+      </section>
+      <div class="connection-strip container">
+        <span>两个熟悉的地方，一段顺畅的阅读旅程</span>
+        <div>
+          <strong class="douban-word">豆瓣<span>读书</span></strong
+          ><span class="connection-line" aria-hidden="true"
+            >······ <svg class="icon"><use href="#book" /></svg> ······</span
+          ><strong class="weread-word"
+            ><svg class="icon"><use href="#book" /></svg> 微信读书</strong
+          >
+        </div>
+        <span class="strip-end">发现，然后开始。</span>
+      </div>
+      <section
+        class="features container"
+        id="features"
+        aria-labelledby="features-title"
+      >
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow section-number">01 / 为阅读，少做一点</p>
+            <h2 id="features-title">
+              把来回搜索的时间，<br />留给书里的世界。
+            </h2>
+          </div>
+          <p>不改变你的阅读习惯。<br />只在需要的时候，帮你多走一步。</p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <div class="feature-icon">
+              <svg class="icon"><use href="#book" /></svg>
             </div>
+            <span class="feature-number">01</span>
+            <h3>有没有，一眼就知道</h3>
+            <p>
+              打开豆瓣书籍详情页，就能看到微信读书的收录状态。不用复制书名，不用再搜一次。
+            </p>
+            <span class="feature-tag">可读状态 · 自动呈现</span>
+          </article>
+          <article>
+            <div class="feature-icon">
+              <svg class="icon"><use href="#arrow" /></svg>
+            </div>
+            <span class="feature-number">02</span>
+            <h3>从想读，到正在读</h3>
+            <p>
+              找到想读的那一本，点击即可前往微信读书网页版。让一时的阅读兴致，变成真正的开始。
+            </p>
+            <span class="feature-tag">一键跳转 · 直达好书</span>
+          </article>
+          <article>
+            <div class="feature-icon star-icon" aria-hidden="true">✳︎</div>
+            <span class="feature-number">03</span>
+            <h3>刚刚好的存在感</h3>
+            <p>
+              融入豆瓣原有的页面，安静地待在书籍信息旁。熟悉的界面，多一个贴心的小帮手。
+            </p>
+            <span class="feature-tag">自然融入 · 轻巧陪伴</span>
+          </article>
         </div>
+      </section>
+      <section
+        class="how-section"
+        id="how-it-works"
+        aria-labelledby="how-title"
+      >
+        <div class="container how-layout">
+          <div class="how-heading">
+            <p class="eyebrow section-number">02 / 三步，翻开一本好书</p>
+            <h2 id="how-title">简单到，<br />不需要说明书。</h2>
+            <a class="inline-link" href="#install"
+              >开始你的阅读旅程 <svg class="icon"><use href="#arrow" /></svg
+            ></a>
+          </div>
+          <ol class="steps">
+            <li>
+              <span class="step-index">1</span>
+              <div>
+                <h3>装上这个小帮手</h3>
+                <p>选择你常用的浏览器，在扩展商店中添加 weReaDou。</p>
+              </div>
+              <span class="step-label">INSTALL</span>
+            </li>
+            <li>
+              <span class="step-index">2</span>
+              <div>
+                <h3>像往常一样，逛逛豆瓣</h3>
+                <p>打开一本书的详情页，扩展会自动查找微信读书中的版本。</p>
+              </div>
+              <span class="step-label">DISCOVER</span>
+            </li>
+            <li>
+              <span class="step-index">3</span>
+              <div>
+                <h3>找到好书，即刻开读</h3>
+                <p>如果已被收录，点击「去看看」，前往微信读书继续阅读。</p>
+              </div>
+              <span class="step-label">READ</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section
+        class="install-section container"
+        id="install"
+        aria-labelledby="install-title"
+      >
+        <div class="install-intro">
+          <span class="little-star" aria-hidden="true">✳︎</span>
+          <p class="eyebrow section-number">下一本好书，等你翻开</p>
+          <h2 id="install-title">让发现与阅读，<br />靠近一点。</h2>
+          <p>为你的浏览器，添一个懂阅读的小工具。</p>
+        </div>
+        <div class="browser-options">
+          <a
+            class="browser-option"
+            data-browser="chrome"
+            href="https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg class="browser-icon" aria-hidden="true">
+              <use href="#logo-chrome" />
+            </svg>
+            <div><strong>Chrome</strong><span>Chrome 应用商店</span></div>
+            <svg class="icon"><use href="#arrow" /></svg></a
+          ><a
+            class="browser-option"
+            data-browser="firefox"
+            href="https://addons.mozilla.org/en-US/firefox/addon/wereadouban/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg class="browser-icon" aria-hidden="true">
+              <use href="#logo-firefox" />
+            </svg>
+            <div><strong>Firefox</strong><span>Firefox 附加组件</span></div>
+            <svg class="icon"><use href="#arrow" /></svg></a
+          ><a
+            class="browser-option"
+            data-browser="edge"
+            href="https://microsoftedge.microsoft.com/addons/detail/wereadou/molknegjakahlleblehcapmofenkmnna"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><svg class="browser-icon" aria-hidden="true">
+              <use href="#logo-edge" />
+            </svg>
+            <div><strong>Edge</strong><span>Edge 外接程序</span></div>
+            <svg class="icon"><use href="#arrow" /></svg
+          ></a>
+        </div>
+        <p class="install-footnote">
+          免费使用 · 代码开源 · 安装后刷新已打开的豆瓣书籍页面
+        </p>
+      </section>
+      <section class="faq container" aria-labelledby="faq-title">
+        <div>
+          <p class="eyebrow section-number">还有一点小疑问？</p>
+          <h2 id="faq-title">你可能想知道</h2>
+          <a
+            class="inline-link"
+            href="https://github.com/Sorosliu1029/weReaDou/issues"
+            target="_blank"
+            rel="noopener noreferrer"
+            >反馈与建议 ↗</a
+          >
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>
+              所有豆瓣上的书，都能在微信读书中找到吗？<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              不一定。weReaDou
+              会搜索微信读书并匹配书名，展示找到的版本。如果没有匹配结果，页面会提示未收录，你也可以前往微信读书自行搜索。实际可读状态以微信读书为准。
+            </p>
+          </details>
+          <details>
+            <summary>
+              安装之后，需要做什么设置？<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              通常无需额外设置。安装扩展后，打开或刷新豆瓣的书籍详情页即可。请确认浏览器允许扩展访问豆瓣读书和微信读书；如果遇到问题，欢迎在
+              GitHub 提交反馈。
+            </p>
+          </details>
+          <details>
+            <summary>
+              手机或 Safari 浏览器可以用吗？<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              此页面提供 Chrome、Firefox 和 Edge
+              的扩展商店入口，建议使用桌面浏览器安装。目前没有在此提供手机或
+              Safari 的商店安装入口。
+            </p>
+          </details>
+          <details>
+            <summary>
+              扩展免费，那微信读书里的书也免费吗？<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              weReaDou
+              本身免费且开源，只负责查找和跳转。微信读书的书籍价格、会员权限以及登录要求，由微信读书平台决定。
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer container">
+      <div>
+        <a class="wordmark" href="#"
+          ><img src="./icon@32.png" width="25" height="25" alt="" /><span
+            >weReaDou<span class="brand-period">.</span></span
+          ></a
+        >
+        <p>连接豆瓣与微信读书，也连接你和下一本好书。</p>
+      </div>
+      <div class="footer-right">
+        <a
+          href="https://github.com/Sorosliu1029/weReaDou"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="icon"><use href="#github" /></svg> GitHub</a
+        ><a href="mailto:soros.liu1029@gmail.com">联系作者 ↗</a
+        ><a
+          href="https://github.com/sponsors/Sorosliu1029"
+          target="_blank"
+          rel="noopener noreferrer"
+          >支持项目 ↗</a
+        ><span>Made for the love of reading.</span>
+      </div>
     </footer>
-    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    <dialog id="preview-dialog" aria-labelledby="preview-title">
+      <div class="dialog-header">
+        <h2 id="preview-title">在豆瓣中，直接找到微信读书的版本</h2>
+        <button class="close-dialog" aria-label="关闭预览">×</button>
+      </div>
+      <div
+        class="preview-scroll"
+        tabindex="0"
+        role="region"
+        aria-label="实际效果截图，可滚动查看"
+      >
+        <img
+          src="./screenshot.png"
+          alt="实际豆瓣书籍页面截图：动物农场详情页右侧新增了「在微信读书中可读」区域，列出多个版本及「去看看」链接。"
+          width="2160"
+          height="1830"
+        />
+      </div>
+      <p>产品截图 · 页面样式与收录结果可能随平台更新而变化</p>
+    </dialog>
     <script>
-        (function () {
-            switch (platform.name) {
-                case 'Firefox':
-                    document.getElementById('install-on-chrome').classList.replace('inline-flex', 'hidden')
-                    document.getElementById('install-on-firefox').classList.replace('hidden', 'inline-flex')
-                    break
-                case 'Microsoft Edge':
-                    document.getElementById('install-on-chrome').classList.replace('inline-flex', 'hidden')
-                    document.getElementById('install-on-edge').classList.replace('hidden', 'inline-flex')
-                    break
-                // default is chrome
-                case 'Chrome':
-                default:
-                    break
-            }
-        })();
+      const stores = {
+        chrome: {
+          name: "Chrome",
+          url: "https://chrome.google.com/webstore/detail/wereadou/njoadngalopipcepefcmebmflilmhadl",
+        },
+        firefox: {
+          name: "Firefox",
+          url: "https://addons.mozilla.org/en-US/firefox/addon/wereadouban/",
+        },
+        edge: {
+          name: "Edge",
+          url: "https://microsoftedge.microsoft.com/addons/detail/wereadou/molknegjakahlleblehcapmofenkmnna",
+        },
+      };
+      const ua = navigator.userAgent;
+      const browser = /Android|iPhone|iPad|Mobile/i.test(ua)
+        ? null
+        : /Edg\//.test(ua)
+          ? "edge"
+          : /Firefox\//.test(ua)
+            ? "firefox"
+            : /Chrome\//.test(ua) && !/OPR\//.test(ua)
+              ? "chrome"
+              : null;
+      if (browser) {
+        const install = document.querySelector(".primary-install");
+        install.href = stores[browser].url;
+        install.querySelector(".install-label").textContent =
+          "添加至 " + stores[browser].name;
+        const icon = install.querySelector(".browser-icon");
+        icon.querySelector("use").setAttribute("href", "#logo-" + browser);
+        const badge = document.createElement("span");
+        badge.className = "recommended";
+        badge.textContent = "当前浏览器";
+        document
+          .querySelector('[data-browser="' + browser + '"] div')
+          .append(badge);
+      } else {
+        const install = document.querySelector(".primary-install");
+        install.href = "#install";
+        install.removeAttribute("target");
+        install.querySelector(".install-label").textContent =
+          "选择浏览器，免费安装";
+      }
+      document.querySelectorAll("[data-demo]").forEach((button) =>
+        button.addEventListener("click", () => {
+          const after = button.dataset.demo === "after";
+          document.querySelector("#reading-result").hidden = !after;
+          document.querySelector(".without-result").hidden = after;
+          document.querySelector(".annotation").style.visibility = after
+            ? "visible"
+            : "hidden";
+          document.querySelectorAll("[data-demo]").forEach((item) => {
+            item.classList.toggle("active", item === button);
+            item.setAttribute("aria-pressed", String(item === button));
+          });
+        }),
+      );
+      const dialog = document.querySelector("#preview-dialog");
+      document
+        .querySelector("[data-open-preview]")
+        .addEventListener("click", () => {
+          dialog.showModal();
+          document.body.classList.add("modal-open");
+        });
+      document
+        .querySelector(".close-dialog")
+        .addEventListener("click", () => dialog.close());
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) {
+          const rect = dialog.getBoundingClientRect();
+          if (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+          )
+            dialog.close();
+        }
+      });
+      dialog.addEventListener("close", () =>
+        document.body.classList.remove("modal-open"),
+      );
     </script>
-</body>
+  </body>
 </html>
